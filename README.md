@@ -7,4 +7,4 @@ Os códigos desse repositório têm o intuito de mostrar algumas técnicas passa
   - Excel: exercício feito para escrever os dados em planilhas do excel.
   - PySpark - Union: usar o PySpark do python para a união de datasets baixados do site dados.gov(CVM)
   - RequestInvest: Uso do request para captura de dados das cotações do dólar e do euro, geração de um log de execução, uma saída em csv, gravação de dados no S3, mensagem para o Slack, Uso de maquina Ec2 AWS e crontab para execução do código via parâmetro   
-  - Exercício de soma: passagem de parâmetros e uso do regex.
+  - Cálculo Regex: passagem de parâmetros e uso do regex.
