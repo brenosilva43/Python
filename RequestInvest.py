@@ -5,9 +5,12 @@ import csv
 import time
 import boto3
 import json
+#imports das bibliotecas
 
+
+# Definição das variaveis de tempo, URL e o Header para simular o navegador
 x=0
-tempo_inicial = time.time()
+tempo_inicial = time.time() 
 urldolar = 'https://m.investing.com/currencies/usd-brl'
 date = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 urleuro = 'https://m.investing.com/currencies/eur-brl'
@@ -15,12 +18,13 @@ headers = {'user-agent': 'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 
 webhook = 'https://hooks.slack.com/services/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'
 slackmsg = {'text':'Acabei!!!'}
 
-
+#metodo que envia mensagem pro slack
 def msgSlack():
     webhook = ''
     slackmsg = {'text': 'Projeto Compilado'}
     requests.post(webhook, data=json.dumps(slackmsg))
 
+#Metodo que manda os arquivo gravado para o S3    
 def s3():
     session = boto3.Session(
         aws_access_key_id='',
@@ -32,7 +36,7 @@ def s3():
     dat = open('log.txt', 'rb')
     s3.Bucket('s3.datalab-fiap-2018').put_object(Key='Desafio/Breno/log.txt', Body=dat)
 
-
+#Medodo que faz o request da cotacao do Euro da pagina m.investing
 def cotacaoEuro():
     resp = requests.get(urleuro, headers=headers)
     string = resp.text
@@ -46,11 +50,13 @@ def cotacaoEuro():
     Euro = x2.strip()
     return Euro
 
+#metodo de gravar cotação do Euro  
 def gravarEuro():
     with open("testeRequest.csv", 'a', newline='') as saida:
         escrever = csv.writer(saida, delimiter =",",quoting=csv.QUOTE_MINIMAL)
         escrever.writerow(["EUR/BRL",cotacaoEuro(),date])
 
+#Medodo que faz o request da cotacao do Dolar da pagina m.investing
 def contacaoDolar():
     resp = requests.get(urldolar, headers=headers)
     string = resp.text
@@ -64,12 +70,13 @@ def contacaoDolar():
     Dolar = x2.strip()
     return Dolar
 
-
+#Metodo de gravar a cotação em csv
 def gravarDolar ():
     with open("testeRequest.csv", 'a', newline='') as saida:
         escrever = csv.writer(saida, delimiter =",",quoting=csv.QUOTE_MINIMAL)
         escrever.writerow(["USD/BRL",contacaoDolar(),date])
 
+#metodo que faz o log dos arquivos        
 def log():
     datefinal = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     file = open('log.txt', 'a', newline='')
@@ -86,7 +93,7 @@ def log():
     file.write("TEMPO DE EXECUCAO : %s segundos " % format(time.time() - tempo_inicial, '.4f')+"\n"+"\n")
     file.close()
 
-
+#Metodo main que chama os metodos definidos por parametros usando o sysargv
 if __name__ == '__main__':
 
     argumento = sys.argv[1:]
