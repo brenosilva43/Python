@@ -8,3 +8,4 @@ Os códigos desse repositório têm o intuito de mostrar algumas técnicas passa
   - PySpark - Union: usar o PySpark do python para a união de datasets baixados do site dados.gov(CVM)
   - RequestInvest(Comentado): Uso do request para captura de dados das cotações do dólar e do euro, geração de um log de execução, uma saída em csv, gravação de dados no S3, mensagem para o Slack, Uso de maquina Ec2 AWS e crontab para execução do código via parâmetro   
   - Cálculo Regex: passagem de parâmetros e uso do regex.
+  - Twitter: Captura os tweets por usuário e por hashtag. https://apps.twitter.com/ - pegar as credenciais
