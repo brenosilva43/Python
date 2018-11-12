@@ -11,3 +11,6 @@ Os códigos desse repositório têm o intuito de mostrar algumas técnicas passa
   - Twitter: Captura os tweets por usuário e por hashtag. https://apps.twitter.com/ - pegar as credenciais
   - Twitter-Data: tem a finalidade de pegar os tweets por uma data especifica- Limite de 10 dias
   - twitter-Usuario: pega os tweets de um usuário - limite de 3200 tweets
+  - JSON-CSV - permite a conversão dos arquivos json em csv
+  - TwitterDiario - permite a Captura do Twitter a partir da data do ultimo tweet id e gravar no mesmo csv 
+  - JsonTweet - Permite a captura de tweet e transforma-los em Json Limite de 3200 tweets por usuário.
