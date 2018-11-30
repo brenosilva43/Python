@@ -14,3 +14,4 @@ Os códigos desse repositório têm o intuito de mostrar algumas técnicas passa
   - JSON-CSV - permite a conversão dos arquivos json em csv
   - TwitterDiario - permite a Captura do Twitter a partir da data do ultimo tweet id e gravar no mesmo csv 
   - JsonTweet - Permite a captura de tweet e transforma-los em Json Limite de 3200 tweets por usuário.
+  - Twitter Hora - caputura de twitter diario com atualização.
